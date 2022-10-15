@@ -1,0 +1,62 @@
+.login {
+  background: url("https://img.thuthuat123.com/uploads/2019/10/11/background-bokeh_024147049.jpg");
+  object-fit: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+.loginBrand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loginBrand > h1 {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #000;
+  border-radius: 2rem;
+  padding: 3rem 5rem;
+}
+
+.loginForm > input {
+  background-color: transparent;
+  padding: 1rem;
+  border: 0.1rem solid #a07a61;
+  border-radius: 0.4rem;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.loginForm > input:focus {
+  border: 0.1rem solid #a07a61;
+}
+
+.loginButton {
+  background-color: #a07a61;
+  color: white;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  transition: all 0.4s;
+}
+.loginButton:active {
+  transform: scale(0.95);
+}

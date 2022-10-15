@@ -8,7 +8,6 @@ import UsersRouter from "./routes/users.js";
 import ProductRouter from "./routes/products.js";
 import CartRouter from "./routes/cart.js";
 import OrderRouter from "./routes/order.js";
-import StripeRouter from "./routes/stripe.js";
 
 const app = express();
 
@@ -44,7 +43,6 @@ app.use("/api/users", UsersRouter);
 app.use("/api/products", ProductRouter);
 app.use("/api/carts", CartRouter);
 app.use("/api/orders", OrderRouter);
-app.use("/api/checkout", StripeRouter);
 
 app.listen(PORT, () => {
   connect();

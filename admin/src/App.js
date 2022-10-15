@@ -1,45 +1,50 @@
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/home/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
+import Topbar from "./components/topbar/Topbar";
+import Sidebar from "./components/sidebar/Sidebar";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import UserList from "./pages/userList/UserList";
+import NewUser from "./pages/newUser/NewUser";
+import User from "./pages/user/User";
+import { Login } from "./pages/login/Login";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "./redux/userRedux";
 
 function App() {
+  const currentUser = useSelector(selectCurrentUser);
+
   return (
     <Router>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/users">
-            <UserList />
-          </Route>
-          <Route path="/user/:userId">
-            <User />
-          </Route>
-          <Route path="/newUser">
-            <NewUser />
-          </Route>
-          <Route path="/products">
-            <ProductList />
-          </Route>
-          <Route path="/product/:productId">
-            <Product />
-          </Route>
-          <Route path="/newproduct">
-            <NewProduct />
-          </Route>
-        </Switch>
-      </div>
+      <Routes>
+        <Route path="/dangnhap" element={<Login />} />
+      </Routes>
+      {currentUser ? (
+        <>
+          <Topbar />
+          <div className="container">
+            <Sidebar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/sanpham" element={<ProductList />} />
+              <Route path="/sanpham/:id" element={<Product />} />
+              <Route path="/themsanpham" element={<NewProduct />} />
+              <Route path="/nguoidung" element={<UserList />} />
+              <Route path="/nguoidung/:id" element={<User />} />
+              <Route path="/themnguoidung" element={<NewUser />} />
+            </Routes>
+          </div>
+        </>
+      ) : (
+        <div className="login">
+          <div>Là Admin Thì Hãy Đăng Nhập Không Thì Mời Rời Khỏi</div>
+          <button>
+            <Link to="/dangnhap">Đăng Nhập</Link>
+          </button>
+        </div>
+      )}
     </Router>
   );
 }

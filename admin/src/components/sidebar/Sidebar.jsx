@@ -12,7 +12,7 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
-} from "@material-ui/icons";
+} from "@mui/icons-material";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -23,10 +23,10 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/" className="link">
-            <li className="sidebarListItem active">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Trang Chủ
+              </li>
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
@@ -41,26 +41,30 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-            <Link to="/users" className="link">
+            <Link to="/nguoidung" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
-                Users
+                Người Dùng
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/themnguoidung" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Thêm Người Dùng
+              </li>
+            </Link>
+            <Link to="/sanpham" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Sản Phẩm
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+            <Link to="/themsanpham" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                Thêm Sản Phẩm
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">

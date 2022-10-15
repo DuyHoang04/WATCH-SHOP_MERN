@@ -22,7 +22,6 @@ export const deleteProduct = async (req, res, next) => {
 
 export const updateProduct = async (req, res, next) => {
   const { id } = req.params;
-  console.log(req.body);
   try {
     const updateProduct = await Product.findByIdAndUpdate(
       id,
