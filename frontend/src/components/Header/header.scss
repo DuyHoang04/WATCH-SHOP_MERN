@@ -1,0 +1,324 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  .top-bar,
+  .masthead {
+    padding-inline: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .top-bar {
+    height: 30px;
+    width: 100%;
+    background-color: #333333;
+    font-size: 14px;
+    transition: all 0.4s ease;
+    .address {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+    .social {
+      display: flex;
+      gap: 0.5rem;
+      cursor: pointer;
+      svg {
+        font-size: 14px;
+        transition: all 0.5s;
+      }
+      svg:hover {
+        color: #a07a61;
+      }
+    }
+  }
+  .masthead {
+    height: 100px;
+    width: 100%;
+    background-color: #333333;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    transition: all 0.4s ease;
+    .icon-list,
+    .icon-clear {
+      display: none;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .search {
+      display: flex;
+      align-items: center;
+      input {
+        height: 40px;
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px 0 0 10px;
+        outline: none;
+        border: none;
+      }
+      button {
+        height: 40px;
+        border: none;
+        outline: none;
+        background-color: #a07a61;
+        display: flex;
+        align-items: center;
+        border-radius: 0 10px 10px 0;
+        svg {
+          margin: 0 20px;
+        }
+      }
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      .rightUser {
+        position: relative;
+        .logOut,
+        .username {
+          width: 150px;
+          align-items: center;
+          padding: 5px 8px;
+          background-color: transparent;
+          color: white;
+          border: 1px solid #fff;
+          cursor: pointer;
+        }
+        .username {
+          transform: scale(1);
+          align-items: center;
+          opacity: 1;
+          visibility: visible;
+          transition: all 0.4s ease-in-out;
+        }
+        .logOut {
+          position: absolute;
+          transform: scale(0);
+          opacity: 0;
+          visibility: none;
+          transition: all 0.4s ease-in-out;
+        }
+        &:hover {
+          .username {
+            transform: scale(0);
+            opacity: 0;
+            visibility: none;
+          }
+          .logOut {
+            transform: scale(1);
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+      .login {
+        position: relative;
+        width: 150px;
+        align-items: center;
+        padding: 5px 8px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1000;
+        transition: all 1s;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -50px;
+          width: 200%;
+          height: 100%;
+          background-color: #a07a61;
+          transform: scaleX(0) skewX(35deg);
+          transform-origin: left;
+          transition: transform 1s;
+          z-index: -1;
+        }
+
+        &:hover::before {
+          transform: scaleX(1) skewX(35deg);
+        }
+      }
+      .cart {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        svg {
+          font-size: 2rem;
+        }
+        span {
+          background: #a07a61;
+          margin-top: 10px;
+          border-radius: 50%;
+          color: white;
+          height: 25px;
+          width: 25px;
+          text-align: center;
+          right: -20px;
+        }
+      }
+    }
+  }
+  .nav {
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .login {
+      cursor: pointer;
+      padding: 5px 8px;
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      color: gray;
+      text-transform: uppercase;
+      display: none;
+    }
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      li {
+        font-size: 15px;
+        position: relative;
+        list-style: none;
+        text-transform: uppercase;
+        font-weight: 500;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          transition: width 0.5s ease;
+          height: 1px;
+          background-color: #a07a61;
+        }
+        &.active::after,
+        &:hover::after {
+          width: 100%;
+        }
+        &.active {
+          color: #a07a61;
+        }
+      }
+    }
+  }
+
+  &.scrolled {
+    .top-bar,
+    .masthead {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .top-bar {
+      display: none;
+    }
+    .masthead {
+      padding-inline: 1rem;
+      .icon-list {
+        display: block;
+      }
+      .login,
+      .icon-clear,
+      .search {
+        display: none;
+      }
+    }
+    .nav {
+      display: none;
+    }
+    &.scrolled {
+      .masthead {
+        display: flex;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &.responsive {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: lightgray;
+      z-index: 100;
+      animation: responsive 0.5s;
+      .masthead {
+        border: none;
+        background: none;
+        color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon-clear,
+        .search {
+          display: block;
+        }
+        .icon-clear {
+          position: absolute;
+          top: 2.2rem;
+          left: 1rem;
+          font-size: 2rem;
+        }
+        .search {
+          display: flex;
+          input {
+            width: 200px;
+          }
+        }
+        .login,
+        .logo,
+        .icon-list,
+        .username,
+        .cart {
+          display: none;
+        }
+      }
+      .nav {
+        display: block;
+        background: none;
+        color: gray;
+        .links {
+          flex-direction: column;
+        }
+        .login {
+          display: block;
+        }
+      }
+      @keyframes responsive {
+        from {
+          top: -100%;
+        }
+        to {
+          top: 0;
+        }
+      }
+    }
+  }
+}

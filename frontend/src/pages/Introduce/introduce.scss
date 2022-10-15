@@ -1,0 +1,142 @@
+.introduce {
+  margin-top: calc(3rem + 240px);
+  scroll-behavior: smooth;
+  .content,
+  .commits,
+  .evaluates {
+    padding-inline: 10rem;
+  }
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    img {
+      width: 50%;
+    }
+    .content-desc {
+      .desc-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+      }
+      .desc-main {
+        color: rgba($color: #000000, $alpha: 0.8);
+      }
+    }
+  }
+  .commits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 10rem;
+    .commit {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      svg {
+        font-size: 3rem;
+        color: #333;
+      }
+      .title {
+        margin-bottom: 0.8em;
+      }
+    }
+  }
+  .counter-up {
+    position: relative;
+    margin-top: 8rem;
+    width: 100%;
+    background-color: #000000;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    .counter {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      z-index: 100;
+      color: white;
+      span {
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+    .blur {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      filter: brightness(0.5);
+      background: linear-gradient(
+        360deg,
+        transparent,
+        rgba(9, 9, 9, 1) 100%,
+        transparent
+      );
+    }
+  }
+  .evaluates {
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .evaluate {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 2rem;
+      .name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .cmt {
+        font-size: 15px;
+        font-style: italic;
+        color: gray;
+        text-align: center;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .content,
+    .commits,
+    .evaluates {
+      padding-inline: 1rem;
+    }
+    .content {
+      flex-direction: column;
+      img {
+        width: 100%;
+      }
+      .content-desc {
+        .desc-title {
+          text-align: center;
+        }
+      }
+    }
+    .commits {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .counter-up {
+      gap: 2rem;
+      .counter {
+        span {
+          font-size: 1.6rem;
+        }
+      }
+    }
+    .evaluates {
+      gap: 3rem;
+    }
+  }
+}

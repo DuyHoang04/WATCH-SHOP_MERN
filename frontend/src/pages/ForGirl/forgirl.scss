@@ -1,0 +1,12 @@
+.ForGirl {
+  margin-top: calc(3rem + 240px);
+  padding-inline: 10rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    padding-inline: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

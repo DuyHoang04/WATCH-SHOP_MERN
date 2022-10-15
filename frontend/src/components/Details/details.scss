@@ -1,0 +1,114 @@
+.details {
+  margin-top: 100px;
+  padding-inline: 10rem;
+  align-items: center;
+  display: flex;
+  .details__img {
+    width: 50%;
+    img {
+      width: 100%;
+      height: 700px;
+    }
+  }
+  .details__info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    .details__info--name {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .details__info--divider {
+      height: 4px;
+      background-color: lightgray;
+      width: 100px;
+      border-radius: 10px;
+    }
+    .details__info--price {
+      color: #a07a61;
+      font-size: 1.3rem;
+      font-weight: 500;
+      span {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: #a07a61;
+          bottom: 2px;
+        }
+      }
+    }
+    .details__info--desc {
+      word-spacing: 2px;
+    }
+    .details__info--stock {
+      padding-inline: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .details__info--cart {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      .cart-form {
+        input {
+          text-align: center;
+          width: 40px;
+          height: 40px;
+          border: 1px solid lightgray;
+          border-left: none;
+          border-right: none;
+        }
+        input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+        .icon {
+          text-align: center;
+          width: 30px;
+          height: 40px;
+          border: 1px solid lightgray;
+          transition: all 0.4s ease;
+          cursor: pointer;
+
+          svg {
+            font-size: 15px;
+          }
+          &:hover {
+            background-color: gray;
+            svg {
+              color: white;
+            }
+          }
+        }
+      }
+      .add-cart {
+        padding: 8px 20px;
+        background-color: #a07a61;
+        border: none;
+        color: white;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    padding-inline: 1rem;
+    align-items: flex-start;
+    flex-direction: column;
+    .details__img {
+      width: 100%;
+    }
+    .details__info {
+      width: 100%;
+    }
+  }
+}
