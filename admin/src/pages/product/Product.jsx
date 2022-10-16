@@ -1,8 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import "./product.css";
 import Chart from "../../components/chart/Chart";
-import { productData } from "../../dummyData";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { reLoadData, selectLoadData } from "../../redux/loadDataRedux.js";

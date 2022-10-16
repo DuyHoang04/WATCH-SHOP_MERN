@@ -12,9 +12,12 @@ import User from "./pages/user/User";
 import { Login } from "./pages/login/Login";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "./redux/userRedux";
+import { NoAdmin } from "./components/noAdmin/NoAdmin";
+import { selectIsAuth } from "./redux/loadDataRedux";
 
 function App() {
   const currentUser = useSelector(selectCurrentUser);
+  const isAuth = useSelector(selectIsAuth);
 
   return (
     <Router>
@@ -38,12 +41,7 @@ function App() {
           </div>
         </>
       ) : (
-        <div className="login">
-          <div>Là Admin Thì Hãy Đăng Nhập Không Thì Mời Rời Khỏi</div>
-          <button>
-            <Link to="/dangnhap">Đăng Nhập</Link>
-          </button>
-        </div>
+        <>{!isAuth && <NoAdmin />}</>
       )}
     </Router>
   );

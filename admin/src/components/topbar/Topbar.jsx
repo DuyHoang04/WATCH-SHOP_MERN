@@ -3,6 +3,7 @@ import "./topbar.css";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOut, selectCurrentUser } from "../../redux/userRedux";
+import { isAuthPage } from "../../redux/loadDataRedux";
 
 export default function Topbar() {
   const currentUser = useSelector(selectCurrentUser);

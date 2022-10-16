@@ -10,6 +10,7 @@ import {
   loginSuccess,
   selectCurrentUser,
 } from "../../redux/userRedux";
+import { isAuthPage } from "../../redux/loadDataRedux";
 
 export const Login = () => {
   const navigate = useNavigate();
